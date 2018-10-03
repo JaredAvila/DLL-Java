@@ -33,4 +33,33 @@ public class Trie {
             printAll(child);
         }
     }
+
+    public Boolean isPrefixValid(String prefix){
+        Node currentNode = this.root;
+        for (int i = 0; i < prefix.length(); i++) {
+            Character currentLetter = prefix.charAt(i);
+            Node child = currentNode.children.get(currentLetter);
+            if(child == null) {
+                return false;
+            }
+            currentNode = child;
+        }
+        return true;
+    }
+
+    public Boolean isWordValid(String word) {
+        Node currentNode = this.root;
+        for (int i = 0; i < word.length(); i++) {
+            Character currentLetter = word.charAt(i);
+            Node child = currentNode.children.get(currentLetter);
+            if(child == null) {
+                return false;
+            }
+            currentNode = child;
+        }
+        if (currentNode.isCompleted == false) {
+            return false;
+        }
+        return true;
+    }
 }

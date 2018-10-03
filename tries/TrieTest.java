@@ -7,6 +7,8 @@ public class TrieTest {
         trie.insertWord("chip");
         trie.insertWord("trie");
         trie.insertWord("try");
-        trie.printAll(trie.root);
+        // System.out.println(trie.isPrefixValid("tr"));
+        System.out.println(trie.isWordValid("try"));
+        System.out.println(trie.isWordValid("cards"));
     }
 }
